@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://use.typekit.net/jze1rws.css">
 <link rel="stylesheet" href="https://use.typekit.net/kbd4gdk.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <title>Riley Swiley - Ana Sayfa</title>
 <link href="riley.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,22 +31,29 @@ body {
 
 #mid-text {
     transition: transform 0.2s ease-in-out; /* Yumuşak geçiş */
+    color: rgb(255, 0, 187); /* Riley yazısının rengi */
 }
 
-#mute-button {
-    bottom: 5%;
-    left: 5%;
+#play-pause-button {
     position: fixed;
-    padding: 10px 20px;
-    background-color: #1DB954;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 0, 187); /* Riley yazısının rengi */
+    color: rgb(255, 0, 187); /* Buton rengi de Riley yazısıyla aynı */
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 24px;
 }
 
-#mute-button:hover {
-    background-color: #14833b;
+#play-pause-button:hover {
+    background-color: rgba(255, 0, 187, 0.1);
+}
+
+#play-pause-button i {
+    pointer-events: none; /* İkonun tıklanmasını engelle */
 }
 </style>
 
@@ -53,22 +61,24 @@ body {
 
 <body>
 
-<audio id="audio-player" autoplay crossorigin="anonymous">
+<audio id="audio-player" crossorigin="anonymous">
     <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
     Tarayıcınız bu sesi desteklemiyor.
 </audio>
-<button id="mute-button">Mute</button>
+<button id="play-pause-button"><i class="fas fa-play"></i></button>
 
 <div class="main">
-    <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg); color: rgb(255, 0, 187); mix-blend-mode: hard-light;">
+    <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg);">
         Riley
     </h1>
 </div>
 
 <script>
     const audioPlayer = document.getElementById('audio-player');
-    const muteButton = document.getElementById('mute-button');
+    const playPauseButton = document.getElementById('play-pause-button');
     const midText = document.getElementById('mid-text');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
 
     // Audio Context ve Analyser oluşturma
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -81,21 +91,16 @@ body {
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
-    // Sayfa yüklendiğinde otomatik başlat
-    window.onload = function() {
-        audioContext.resume().then(() => {
-            audioPlayer.play();
-        });
-    };
-
-    // Mute butonu işlevi
-    muteButton.addEventListener('click', function() {
-        if (audioPlayer.muted) {
-            audioPlayer.muted = false;
-            muteButton.textContent = 'Mute';
+    // Play/Pause butonu işlevi
+    playPauseButton.addEventListener('click', function() {
+        if (audioPlayer.paused) {
+            audioContext.resume().then(() => {
+                audioPlayer.play();
+                playPauseButton.innerHTML = pauseIcon;
+            });
         } else {
-            audioPlayer.muted = true;
-            muteButton.textContent = 'Unmute';
+            audioPlayer.pause();
+            playPauseButton.innerHTML = playIcon;
         }
     });
 
@@ -103,6 +108,7 @@ body {
     audioPlayer.addEventListener('ended', function() {
         audioPlayer.currentTime = 0;
         audioPlayer.play();
+        playPauseButton.innerHTML = pauseIcon;
     });
 
     let previousScale = 1; // Önceki ölçek değerini saklamak için
@@ -117,7 +123,7 @@ body {
 
         // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
         const targetScale = 1 + (averageFrequency / 512); // Frekansın gücünü azaltarak daha yumuşak yapıyoruz
-        const smoothScale = previousScale + (targetScale - previousScale) * 2; // Yumuşatma faktörü
+        const smoothScale = previousScale + (targetScale - previousScale) * 0.1; // Yumuşatma faktörü
 
         midText.style.transform = `scale(${smoothScale}) rotate(-20deg)`;
 
