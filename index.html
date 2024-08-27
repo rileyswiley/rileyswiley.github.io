@@ -31,17 +31,7 @@
     }
 }
 
-body {
-    background-image: 
-        linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), /* White gradient */
-        url('resources/images/bg-main.jpeg'); /* Your existing background image */    background-size: cover;
-    height: 100vh;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: filter 0.3s ease; /* Blur geçişini yumuşatmak için */
-    
-}
+
 
 .main {
     display: flex;
@@ -52,7 +42,7 @@ body {
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     mix-blend-mode: hard-light;
-    z-index: -5;
+    z-index: 2;
     transition: top 1s ease, transform 1s ease; /* Geçiş süresi ve hareketler */
 }
 
@@ -65,6 +55,7 @@ body {
     position: relative; 
     transform: translate(-50%, -50%) rotate(-20deg); /* Başlangıç pozisyonu ve döndürme */
     text-align: center;
+    z-index: 2;
 }
 
 
@@ -154,8 +145,7 @@ body {
     width: 100vw;
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(0px);
+    z-index: 2;
 }
 
 .menus a {
@@ -186,16 +176,17 @@ body {
 .daire {
     width: 1050px;
     height: 1050px;
-    background-color: rgba(255, 255, 255, 0.436);
+    background-color: rgb(255, 255, 255);
     mix-blend-mode: hard-light;
     border-radius: 50%;
     position: fixed;
     top: -50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    z-index: -10;
+    z-index: 1;
     backdrop-filter: blur(25px);
     transition: 1s ease;
+    box-shadow: 0 0 25px rgba(255, 0, 187, 0.8);
 }
 
 
@@ -212,6 +203,22 @@ body {
 
 
 
+    <div style=" background-image: 
+        linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), /* White gradient */
+        url('resources/images/bg-main.jpeg'); /* Your existing background image */    
+    
+        background-size: cover;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;">
+
+    </div>
+
+
+
 
 
 
@@ -221,6 +228,7 @@ position: fixed;
 left: 5%;
 bottom: 2%;
 pointer-events: none;
+z-index: 1;
 letter-spacing: 2pt;
 font-size: 10pt;">
     Ⓒ SLVNZ // 2024
@@ -232,6 +240,7 @@ left: 50%;
 bottom: 1%;
 transform: translateX(-50%);
 pointer-events: none;
+z-index: 1;
 font-size: 7pt;">
     MUSIC BY ALEYNA TİLKİ - BEDEL
 </p>
@@ -244,6 +253,7 @@ pointer-events: none;
 letter-spacing: 2pt;
 text-align: right;
 font-size: 10pt;
+z-index: 1;
 font-style: italic;">
     FORKLIFT &nbsp; II
 </p>
@@ -257,6 +267,7 @@ pointer-events: none;
 letter-spacing: 5pt;
 width: 100vw;
 text-align: center;
+z-index: 1;
 font-size: 6pt;">
     BU PROJE HİÇBİR TİCARİ AMAÇ GÜTMEMEKTEDİR. BİR TTRPG KARAKTERİNİ YANSITMAK ÜZERE OLUŞTURULMUŞ, HERHANGİ BİR MADDİ GETİRİSİ OLMAYAN BİR PROJEDİR.
 </p>
@@ -273,8 +284,8 @@ font-size: 6pt;">
     Tarayıcınız bu sesi desteklemiyor.
 </audio>
 <div id="controls">
-    <button id="play-pause-button"><i class="fas fa-play"></i></button>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+    <button style="z-index: 3;" id="play-pause-button"><i class="fas fa-play"></i></button>
+    <input style="z-index: 3;" type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
 </div>
 
 
@@ -294,8 +305,12 @@ font-size: 6pt;">
         </h1>
 
         
+
+        
     
 </div>
+
+
 
 <div class="menus">
 
@@ -309,6 +324,81 @@ font-size: 6pt;">
 </div>
 
 <div class="daire">
+
+</div>
+
+
+
+<p lang="tr" style="margin-top: 100px; margin-bottom: 100px;z-index: -10;font-family: 'barlow'; text-justify: distribute; hyphens: auto; margin-left: 25vw; margin-right: 25vw;">
+    Bu internet sitesi, Urban TTRPG oyununda yer alan Riley Kılınç karakterinin tanıtımını ve takibini sağlamak amacıyla, solo bir proje olarak hazırlanmıştır. Karakterin kişiliği, geçmişi, ilişkileri, ve oyun süresince yaşadığı önemli olayları içeren bu site, oyunu yöneten DM'in işini kolaylaştırmak ve karakterin gelişimini detaylı bir şekilde sunmak için tasarlanmıştır.
+
+    <br><br>
+
+    Bu proje, tamamen bireysel bir çalışma olup, Riley Kılınç karakterine dair tüm bilgileri ve detayları bir arada tutmayı amaçlar. Bu site, karakterin zengin hikayesini ve oyun içindeki yerini hem oyunculara hem de DM'e daha anlaşılır ve erişilebilir bir formatta sunmayı hedeflemektedir.
+</p>
+
+
+
+
+<div class="mainsection">
+
+
+    
+
+
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+
+        <div style="width: 1000px; display: flex; flex-direction: column;">
+            <h1 style="font-family: 'relation-two'; font-size: 48pt; color: rgb(255, 0, 187);">Riley Kılınç</h1>
+        
+            <label>
+                <strong>Yaş:</strong> 21
+            </label>
+
+            <label>
+                <strong>Boy:</strong> 1.64 cm.
+            </label>
+        
+            <label>
+                <strong>Kilo:</strong> 69 kg.
+            </label>
+
+            <label>
+                <strong>Gözler:</strong> Mavi
+            </label>
+
+            <label>
+                <strong>Saçlar:</strong> Açık Kahverengi - Sarıya yakın (Beyaza Boyuyor)
+            </label>
+
+            <label>
+                <strong>Ten Rengi:</strong> Soluk Beyaz
+            </label>
+
+            <label>
+                <strong>Doğum Yeri:</strong> New York - USA
+            </label>
+
+            <label>
+                <strong>Meslek:</strong> 2. Sınıf Öğrenci (Gülbant Üni. Güzel Sanatlar Fakültesi - Grafik)
+            </label>
+
+            <label>
+                <strong>Genel Karakteristik:</strong> Neşeli, Enerjik, Çekingen, Şehvetli, Meraklı, Korkak, Hayalperest
+            </label>
+        
+        
+        </div>
+
+        <div class="image-container" style="display: flex; justify-content: flex-end;">
+            <img src="resources/images/riley.jpeg" alt="RileyImage" style="height: 800px; width: auto; transform: scaleX(-1);">
+        </div>
+    </div>
+
+    <div class="" style="display: flex; justify-content: flex-end; margin-bottom: 10vh;">
+        <img src="resources/images/lying.jpeg" alt="RileyImage" style="height: 800px; width: auto; transform: scaleX(-1) translateY(-300px); mix-blend-mode: multiply;">
+    </div>
+
 
 </div>
 
