@@ -10,6 +10,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+@media screen and (max-width: 1920px) {
+    #cards-contain {
+        flex-direction: column !important;
+    }
+
+    .main h1 {
+        font-size: 450pt !important;
+    }
+}
+
 @media screen and (max-width: 1080px) {
     #cards-contain {
         flex-direction: column !important;
@@ -39,13 +50,10 @@ body {
 }
 
 #mid-text {
-    transition: transform 0.2s ease-in-out; /* Yumuşak geçiş */
+    transition: transform 10ms ease-in-out; /* Daha hızlı geçiş */
     color: rgb(255, 0, 187); /* Riley yazısının rengi */
     mix-blend-mode: hard-light;
-}
-
-.main h1 {
-    font-size: 450pt; 
+    font-size: 800pt; 
     pointer-events: none; 
     position: fixed; 
     transform: rotate(-20deg);
@@ -91,21 +99,20 @@ body {
 </div>
 
 <div style="height: 1920px;">
-
-    
+    <!-- İçerik -->
 </div>
 
 <script>
     const audioPlayer = document.getElementById('audio-player');
     const playPauseButton = document.getElementById('play-pause-button');
-    const midText = document.getElementById('main');
+    const midText = document.getElementById('mid-text'); // Doğru öğeyi seçiyoruz
     const playIcon = '<i class="fas fa-play"></i>';
     const pauseIcon = '<i class="fas fa-pause"></i>';
 
     // Audio Context ve Analyser oluşturma
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const analyser = audioContext.createAnalyser();
-    analyser.fftSize = 256;
+    analyser.fftSize = 64;  // Daha düşük fftSize ile bas frekanslara odaklanıyoruz
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
     // Audio kaynağını bağlama
@@ -140,14 +147,15 @@ body {
 
         analyser.getByteFrequencyData(dataArray);
 
-        // Frekans verilerine göre ortalama hesaplama
-        const averageFrequency = dataArray.reduce((a, b) => a + b) / dataArray.length;
+        // Bas frekanslara odaklanma - genellikle ilk birkaç değer
+        const bassAverage = dataArray.slice(0, 5).reduce((a, b) => a + b) / 15;
 
         // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
-        const targetScale = 1 + (averageFrequency / 512); // Frekansın gücünü azaltarak daha yumuşak yapıyoruz
-        const smoothScale = previousScale + (targetScale - previousScale) * 2; // Yumuşatma faktörü
+        const targetScale = 1 + (bassAverage / 128);  // Frekansın gücünü azaltarak daha hızlı tepki
+        const smoothScale = previousScale + (targetScale - previousScale) * 1;  // Daha keskin animasyon
 
-        midText.style.transform = `scale(${smoothScale}) rotate(-20deg)`;
+        // Sadece scale uygula, transform değerlerini bozmadan
+        midText.style.transform = ` rotate(-20deg) scale(${smoothScale})`;
 
         // Scale değerini sakla
         previousScale = smoothScale;
@@ -155,9 +163,6 @@ body {
 
     // Animasyonu başlat
     animate();
-
-    
-    
 </script>
 
 </body>
