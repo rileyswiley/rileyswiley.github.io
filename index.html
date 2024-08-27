@@ -35,6 +35,11 @@ body {
     left: 5%;
     position: fixed;
 }
+
+#mid-text {
+    transition: transform 0.2s ease-in-out; /* Yumuşak geçiş */
+}
+
 </style>
 
 </head>
@@ -115,20 +120,32 @@ audioPlayer.addEventListener('ended', function() {
 });
 
 // Görselleştirme fonksiyonu
+let previousScale = 1; // Önceki ölçek değerini saklamak için
+
 function animate() {
     requestAnimationFrame(animate);
 
     analyser.getByteFrequencyData(dataArray);
 
-    // Frekans verilerine göre yazının boyutunu ayarla
+    // Frekans verilerine göre ortalama hesaplama
     const averageFrequency = dataArray.reduce((a, b) => a + b) / dataArray.length;
-    const scale = 1 + (averageFrequency / 256); // Sesin gücüne göre ölçekleme
 
-    midText.style.transform = `scale(${scale}) rotate(-20deg)`;
+    // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
+    const targetScale = 1 + (averageFrequency / 512); // Frekansın gücünü azaltarak daha yumuşak yapıyoruz
+    const smoothScale = previousScale + (targetScale - previousScale) * 0.8; // Yumuşatma faktörü
+
+    midText.style.transform = `scale(${smoothScale}) rotate(-20deg)`;
+
+    // Scale değerini sakla
+    previousScale = smoothScale;
 }
 
 // Animasyonu başlat
 animate();
+
+
+
+
     </script>
 		
 		
