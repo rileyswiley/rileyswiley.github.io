@@ -10,14 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1080px) {
     #cards-contain {
         flex-direction: column !important;
+    }
+
+    #mid-text {
+        font-size: 250pt !important;
     }
 }
 
 body {
-    background-image: url(resources/images/none);
+    background-image: url(resources/images/bg-main.jpeg);
     background-size: cover;
     height: 100vh;
 }
@@ -32,6 +36,7 @@ body {
 #mid-text {
     transition: transform 0.2s ease-in-out; /* Yumuşak geçiş */
     color: rgb(255, 0, 187); /* Riley yazısının rengi */
+    mix-blend-mode: hard-light;
 }
 
 #play-pause-button {
@@ -68,7 +73,7 @@ body {
 <button id="play-pause-button"><i class="fas fa-play"></i></button>
 
 <div class="main">
-    <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg);">
+    <h1 id="mid-text" style="font-size: 450pt; pointer-events: none; position: fixed; transform: rotate(-20deg);">
         Riley
     </h1>
 </div>
