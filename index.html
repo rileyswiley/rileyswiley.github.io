@@ -38,7 +38,6 @@ body {
     margin: 0;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
     transition: filter 0.3s ease; /* Blur geçişini yumuşatmak için */
 }
 
@@ -50,14 +49,19 @@ body {
 }
 
 #mid-text {
-    transition: transform 10ms ease-in-out; /* Daha hızlı geçiş */
+    transition: scale 10ms ease-in-out;   /* Scale için geçiş */
     color: rgb(255, 0, 187); /* Riley yazısının rengi */
     mix-blend-mode: hard-light;
-    font-size: 800pt; 
+    font-size: 600pt; 
     pointer-events: none; 
-    position: fixed; 
-    transform: rotate(-20deg);
+    position: relative; 
+    transform: translate(-50%, -50%) rotate(-20deg); /* Başlangıç pozisyonu ve döndürme */
+    text-align: center;
 }
+
+
+
+
 
 #play-pause-button {
     display: flex;
@@ -127,11 +131,33 @@ body {
     background: rgba(255, 0, 187, 0.8); /* Thumb için hafif saydam pembe */
     cursor: pointer;
 }
+
+
+
+
+
+
+
 </style>
 
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <audio id="audio-player" crossorigin="anonymous">
     <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
@@ -141,17 +167,59 @@ body {
     <button id="play-pause-button"><i class="fas fa-play"></i></button>
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
 </div>
+
+
+
+
+
+
+
+
+
 <div class="main">
-    <h1 id="mid-text">
-        Riley
-    </h1>
+    
+        <h1 id="mid-text">
+            Riley
+        </h1>
+    
 </div>
 
-<div style="height: 1920px;">
+
+<div style="height: 5000px;">
     <!-- İçerik -->
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
+    const hiddenElement = document.querySelector('.hidden-class'); // Display: none olan öğeyi seçiyoruz
     const audioPlayer = document.getElementById('audio-player');
     const playPauseButton = document.getElementById('play-pause-button');
     const volumeSlider = document.getElementById('volume-slider');
@@ -218,6 +286,13 @@ body {
 
     // Animasyonu başlat
     animate();
+
+
+    
+
+    
+
+    
 </script>
 
 </body>
