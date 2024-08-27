@@ -41,15 +41,19 @@ body {
 
 <body>
 
-    <audio id="audio-player" autoplay>
+    <audio id="audio-player" autoplay controls>
         <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
         Tarayıcınız bu sesi desteklemiyor.
     </audio>
+    <button id="play-button">Müziği Başlat</button>
     <button id="mute-button">Mute</button>
 
 	
 
     <div class="main">
+
+
+        <p style="text-align: center; color: black; position: fixed; top: 20%; font-family: 'barlow';">SLM</p>
 
 
         <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg); color: rgb(255, 0, 187);
@@ -71,23 +75,60 @@ body {
 
     <script>
         const audioPlayer = document.getElementById('audio-player');
-        const muteButton = document.getElementById('mute-button');
-    
-        // Sayfa yüklendiğinde şarkının otomatik olarak başlaması
-        window.onload = function() {
-            audioPlayer.play();
-        };
-    
-        // Mute butonuna tıklanınca sesin kapatılması/açılması
-        muteButton.addEventListener('click', function() {
-            if (audioPlayer.muted) {
-                audioPlayer.muted = false;
-                muteButton.textContent = 'Mute';
-            } else {
-                audioPlayer.muted = true;
-                muteButton.textContent = 'Unmute';
-            }
-        });
+const playButton = document.getElementById('play-button');
+const muteButton = document.getElementById('mute-button');
+const midText = document.getElementById('mid-text');
+
+// Audio Context ve Analyser oluşturma
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
+analyser.fftSize = 256;
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+// Audio kaynağını bağlama
+const source = audioContext.createMediaElementSource(audioPlayer);
+source.connect(analyser);
+analyser.connect(audioContext.destination);
+
+playButton.addEventListener('click', function() {
+    audioContext.resume().then(() => {
+        audioPlayer.play();
+        playButton.style.display = 'none';
+        muteButton.style.display = 'block';
+    });
+});
+
+muteButton.addEventListener('click', function() {
+    if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        muteButton.textContent = 'Mute';
+    } else {
+        audioPlayer.muted = true;
+        muteButton.textContent = 'Unmute';
+    }
+});
+
+// Müzik sona erdiğinde tekrar çalmaya başla
+audioPlayer.addEventListener('ended', function() {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
+});
+
+// Görselleştirme fonksiyonu
+function animate() {
+    requestAnimationFrame(animate);
+
+    analyser.getByteFrequencyData(dataArray);
+
+    // Frekans verilerine göre yazının boyutunu ayarla
+    const averageFrequency = dataArray.reduce((a, b) => a + b) / dataArray.length;
+    const scale = 1 + (averageFrequency / 256); // Sesin gücüne göre ölçekleme
+
+    midText.style.transform = `scale(${scale}) rotate(-20deg)`;
+}
+
+// Animasyonu başlat
+animate();
     </script>
 		
 		
