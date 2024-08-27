@@ -45,7 +45,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    mix-blend-mode: hard-light;
+    z-index: -5;
+    transition: top 1s ease, transform 1s ease; /* Geçiş süresi ve hareketler */
 }
 
 #mid-text {
@@ -132,6 +138,62 @@ body {
     cursor: pointer;
 }
 
+.controls {
+    z-index: 10;
+}
+
+
+.menus {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: top 1s ease, transform 1s ease; /* Geçiş süresi ve hareketler */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+}
+
+.menus a {
+    text-decoration: none;
+    color: rgba(255, 0, 187, 0.8);
+    font-family: "barlow";
+    text-shadow: 0 0 10px rgba(255, 0, 187, 0.8);
+    color: white;
+    letter-spacing: 1pt;
+}
+
+.menus p {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+    padding: 10px;
+    margin: 0;
+}
+
+.menus a:hover {
+    color: rgba(255, 0, 187, 0.8);
+    text-shadow: 0 0 10px white;
+    font-weight: bold;
+}
+
+
+.daire {
+    width: 1050px;
+    height: 1050px;
+    background-color: rgba(255, 255, 255, 0.436);
+    mix-blend-mode: hard-light;
+    border-radius: 50%;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -10;
+    backdrop-filter: blur(25px);
+    transition: 1s ease;
+}
+
 
 
 
@@ -177,11 +239,30 @@ body {
 
 
 <div class="main">
+
+    
     
         <h1 id="mid-text">
             Riley
         </h1>
+
+        
     
+</div>
+
+<div class="menus">
+
+
+    <p><a href="karakter.html">KARAKTER</a></p>
+    <p><a href="karakter.html">HİKAYE</a></p>
+    <p><a href="karakter.html">İLİŞKİLER</a></p>
+
+    
+
+</div>
+
+<div class="daire">
+
 </div>
 
 
@@ -226,6 +307,10 @@ body {
     const midText = document.getElementById('mid-text'); // Doğru öğeyi seçiyoruz
     const playIcon = '<i class="fas fa-play"></i>';
     const pauseIcon = '<i class="fas fa-pause"></i>';
+    const main = document.getElementsByClassName('main');
+    const menu = document.getElementsByClassName('menus');
+    const daire = document.getElementsByClassName('daire');
+
 
     // Audio Context ve Analyser oluşturma
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -286,6 +371,59 @@ body {
 
     // Animasyonu başlat
     animate();
+
+    window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const mainElement = document.querySelector('.main');
+
+    if (scrollPosition >= 600) {
+        // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
+        mainElement.style.top = '8%';
+        mainElement.style.transform = 'translate(-50%, -50%) scale(0.15)'; // Boyutu küçült
+    } else {
+        // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
+        mainElement.style.top = '50%';
+        mainElement.style.transform = 'translate(-50%, -50%) scale(1)'; // Eski boyuta dön
+    }
+});
+
+
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const mainElement = document.querySelector('.menus');
+
+    if (scrollPosition >= 600) {
+        // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
+        mainElement.style.top = '3.5%';
+        mainElement.style.transform = 'translate(-50%, -50%)'; // Boyutu küçült
+    } else {
+        // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
+        mainElement.style.top = '75%';
+        mainElement.style.transform = 'translate(-50%, -50%)'; // Eski boyuta dön
+
+
+    }
+});
+
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const mainElement = document.querySelector('.daire');
+
+    if (scrollPosition >= 600) {
+        // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
+        mainElement.style.top = '-20%';
+        mainElement.style.transform = 'translate(-50%, -50%)'; // Boyutu küçült
+    } else {
+        // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
+        mainElement.style.top = '-50%';
+        mainElement.style.transform = 'translate(-50%, -50%)'; // Eski boyuta dön
+
+
+    }
+});
+
+
+
 
 
     
