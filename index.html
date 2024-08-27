@@ -60,6 +60,12 @@ body {
 }
 
 #play-pause-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 0;
     position: fixed;
     bottom: 5%;
     left: 50%;
@@ -80,6 +86,47 @@ body {
 #play-pause-button i {
     pointer-events: none; /* İkonun tıklanmasını engelle */
 }
+
+#volume-slider {
+    width: 150px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(255, 0, 187);
+    width: 150px;
+    cursor: pointer;
+    -webkit-appearance: none; /* Varsayılan stil kaldırma */
+    background: rgba(255, 0, 187, 0.3); /* Track için hafif saydam pembe */
+    height: 5px;
+    border-radius: 5px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 0, 187, 0.8); /* Thumb için hafif saydam pembe */
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 0, 187, 0.8); /* Thumb için hafif saydam pembe */
+    cursor: pointer;
+}
+
+#volume-slider::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 0, 187, 0.8); /* Thumb için hafif saydam pembe */
+    cursor: pointer;
+}
 </style>
 
 </head>
@@ -90,8 +137,10 @@ body {
     <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
     Tarayıcınız bu sesi desteklemiyor.
 </audio>
-<button id="play-pause-button"><i class="fas fa-play"></i></button>
-
+<div id="controls">
+    <button id="play-pause-button"><i class="fas fa-play"></i></button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+</div>
 <div class="main">
     <h1 id="mid-text">
         Riley
@@ -105,6 +154,7 @@ body {
 <script>
     const audioPlayer = document.getElementById('audio-player');
     const playPauseButton = document.getElementById('play-pause-button');
+    const volumeSlider = document.getElementById('volume-slider');
     const midText = document.getElementById('mid-text'); // Doğru öğeyi seçiyoruz
     const playIcon = '<i class="fas fa-play"></i>';
     const pauseIcon = '<i class="fas fa-pause"></i>';
@@ -131,6 +181,11 @@ body {
             audioPlayer.pause();
             playPauseButton.innerHTML = playIcon;
         }
+    });
+
+    // Ses seviyesi kontrolü
+    volumeSlider.addEventListener('input', function() {
+        audioPlayer.volume = volumeSlider.value;
     });
 
     // Müzik sona erdiğinde tekrar çalmaya başla
