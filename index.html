@@ -29,11 +29,23 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+#mute-button {
+    bottom: 5%;
+    left: 5%;
+    position: fixed;
+}
 </style>
 
 </head>
 
 <body>
+
+    <audio id="audio-player" autoplay>
+        <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
+        Tarayıcınız bu sesi desteklemiyor.
+    </audio>
+    <button id="mute-button">Mute</button>
 
 	
 
@@ -47,7 +59,36 @@ body {
         </h1>
 
 
+        
+
+
     </div>
+
+
+
+
+
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const muteButton = document.getElementById('mute-button');
+    
+        // Sayfa yüklendiğinde şarkının otomatik olarak başlaması
+        window.onload = function() {
+            audioPlayer.play();
+        };
+    
+        // Mute butonuna tıklanınca sesin kapatılması/açılması
+        muteButton.addEventListener('click', function() {
+            if (audioPlayer.muted) {
+                audioPlayer.muted = false;
+                muteButton.textContent = 'Mute';
+            } else {
+                audioPlayer.muted = true;
+                muteButton.textContent = 'Unmute';
+            }
+        });
+    </script>
 		
 		
 			
