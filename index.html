@@ -9,11 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-	
-	@media screen and (max-width: 600px) {
-	#cards-contain {
-		flex-direction: column !important;
-	}
+@media screen and (max-width: 600px) {
+    #cards-contain {
+        flex-direction: column !important;
+    }
 }
 
 body {
@@ -22,7 +21,6 @@ body {
     height: 100vh;
 }
 
-
 .main {
     display: flex;
     justify-content: center;
@@ -30,130 +28,106 @@ body {
     height: 100vh;
 }
 
-#mute-button {
-    bottom: 5%;
-    left: 5%;
-    position: fixed;
-}
-
 #mid-text {
     transition: transform 0.2s ease-in-out; /* Yumuşak geçiş */
 }
 
+#mute-button {
+    bottom: 5%;
+    left: 5%;
+    position: fixed;
+    padding: 10px 20px;
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#mute-button:hover {
+    background-color: #14833b;
+}
 </style>
 
 </head>
 
 <body>
 
-    <audio id="audio-player" autoplay controls>
-        <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
-        Tarayıcınız bu sesi desteklemiyor.
-    </audio>
-    <button id="play-button">Müziği Başlat</button>
-    <button id="mute-button">Mute</button>
+<audio id="audio-player" autoplay crossorigin="anonymous">
+    <source src="resources/sound/atilki-bedel-page.mp3" type="audio/mpeg">
+    Tarayıcınız bu sesi desteklemiyor.
+</audio>
+<button id="mute-button">Mute</button>
 
-	
+<div class="main">
+    <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg); color: rgb(255, 0, 187); mix-blend-mode: hard-light;">
+        Riley
+    </h1>
+</div>
 
-    <div class="main">
+<script>
+    const audioPlayer = document.getElementById('audio-player');
+    const muteButton = document.getElementById('mute-button');
+    const midText = document.getElementById('mid-text');
 
+    // Audio Context ve Analyser oluşturma
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
-        <p style="text-align: center; color: black; position: fixed; top: 20%; font-family: 'barlow';">SLM</p>
+    // Audio kaynağını bağlama
+    const source = audioContext.createMediaElementSource(audioPlayer);
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
 
+    // Sayfa yüklendiğinde otomatik başlat
+    window.onload = function() {
+        audioContext.resume().then(() => {
+            audioPlayer.play();
+        });
+    };
 
-        <h1 id="mid-text" style="font-size: 348pt; pointer-events: none; position: fixed; transform: rotate(-20deg); color: rgb(255, 0, 187);
-        mix-blend-mode: hard-light;
-        ">
-            Riley
-        </h1>
-
-
-        
-
-
-    </div>
-
-
-
-
-
-
-    <script>
-        const audioPlayer = document.getElementById('audio-player');
-const playButton = document.getElementById('play-button');
-const muteButton = document.getElementById('mute-button');
-const midText = document.getElementById('mid-text');
-
-// Audio Context ve Analyser oluşturma
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-const analyser = audioContext.createAnalyser();
-analyser.fftSize = 256;
-const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-// Audio kaynağını bağlama
-const source = audioContext.createMediaElementSource(audioPlayer);
-source.connect(analyser);
-analyser.connect(audioContext.destination);
-
-playButton.addEventListener('click', function() {
-    audioContext.resume().then(() => {
-        audioPlayer.play();
-        playButton.style.display = 'none';
-        muteButton.style.display = 'block';
+    // Mute butonu işlevi
+    muteButton.addEventListener('click', function() {
+        if (audioPlayer.muted) {
+            audioPlayer.muted = false;
+            muteButton.textContent = 'Mute';
+        } else {
+            audioPlayer.muted = true;
+            muteButton.textContent = 'Unmute';
+        }
     });
-});
 
-muteButton.addEventListener('click', function() {
-    if (audioPlayer.muted) {
-        audioPlayer.muted = false;
-        muteButton.textContent = 'Mute';
-    } else {
-        audioPlayer.muted = true;
-        muteButton.textContent = 'Unmute';
+    // Müzik sona erdiğinde tekrar çalmaya başla
+    audioPlayer.addEventListener('ended', function() {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+    });
+
+    let previousScale = 1; // Önceki ölçek değerini saklamak için
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        analyser.getByteFrequencyData(dataArray);
+
+        // Frekans verilerine göre ortalama hesaplama
+        const averageFrequency = dataArray.reduce((a, b) => a + b) / dataArray.length;
+
+        // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
+        const targetScale = 1 + (averageFrequency / 512); // Frekansın gücünü azaltarak daha yumuşak yapıyoruz
+        const smoothScale = previousScale + (targetScale - previousScale) * 2; // Yumuşatma faktörü
+
+        midText.style.transform = `scale(${smoothScale}) rotate(-20deg)`;
+
+        // Scale değerini sakla
+        previousScale = smoothScale;
     }
-});
 
-// Müzik sona erdiğinde tekrar çalmaya başla
-audioPlayer.addEventListener('ended', function() {
-    audioPlayer.currentTime = 0;
-    audioPlayer.play();
-});
-
-// Görselleştirme fonksiyonu
-let previousScale = 1; // Önceki ölçek değerini saklamak için
-
-function animate() {
-    requestAnimationFrame(animate);
-
-    analyser.getByteFrequencyData(dataArray);
-
-    // Frekans verilerine göre ortalama hesaplama
-    const averageFrequency = dataArray.reduce((a, b) => a + b) / dataArray.length;
-
-    // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
-    const targetScale = 1 + (averageFrequency / 512); // Frekansın gücünü azaltarak daha yumuşak yapıyoruz
-    const smoothScale = previousScale + (targetScale - previousScale) * 0.8; // Yumuşatma faktörü
-
-    midText.style.transform = `scale(${smoothScale}) rotate(-20deg)`;
-
-    // Scale değerini sakla
-    previousScale = smoothScale;
-}
-
-// Animasyonu başlat
-animate();
-
-
-
-
-    </script>
-		
-		
-			
-					 
-		
+    // Animasyonu başlat
+    animate();
+</script>
 
 </body>
 </html>
-
-
