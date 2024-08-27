@@ -112,7 +112,7 @@ body {
     // Audio Context ve Analyser oluşturma
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const analyser = audioContext.createAnalyser();
-    analyser.fftSize = 64;  // Daha düşük fftSize ile bas frekanslara odaklanıyoruz
+    analyser.fftSize = 8192;  // Daha düşük fftSize ile bas frekanslara odaklanıyoruz
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
     // Audio kaynağını bağlama
@@ -148,10 +148,10 @@ body {
         analyser.getByteFrequencyData(dataArray);
 
         // Bas frekanslara odaklanma - genellikle ilk birkaç değer
-        const bassAverage = dataArray.slice(0, 5).reduce((a, b) => a + b) / 15;
+        const bassAverage = dataArray.slice(0, 5).reduce((a, b) => a + b) / 5;
 
         // Yumuşak geçiş için mevcut scale'i önceki scale ile birleştir
-        const targetScale = 1 + (bassAverage / 128);  // Frekansın gücünü azaltarak daha hızlı tepki
+        const targetScale = 1 + (bassAverage / 512);  // Frekansın gücünü azaltarak daha hızlı tepki
         const smoothScale = previousScale + (targetScale - previousScale) * 1;  // Daha keskin animasyon
 
         // Sadece scale uygula, transform değerlerini bozmadan
