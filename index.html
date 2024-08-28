@@ -180,7 +180,7 @@
     mix-blend-mode: hard-light;
     border-radius: 50%;
     position: fixed;
-    top: -50%;
+    top: -100%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
@@ -330,7 +330,7 @@ font-size: 6pt;">
 
 
 
-<p lang="tr" style="margin-top: 100px; margin-bottom: 100px;z-index: -10;font-family: 'barlow'; text-justify: distribute; hyphens: auto; margin-left: 25vw; margin-right: 25vw;">
+<p lang="tr" style="margin-top: 400px; margin-bottom: 200px;z-index: -10;font-family: 'barlow'; text-justify: distribute; hyphens: auto; margin-left: 25vw; margin-right: 25vw;">
     Bu internet sitesi, Urban TTRPG oyununda yer alan Riley Kılınç karakterinin tanıtımını ve takibini sağlamak amacıyla, solo bir proje olarak hazırlanmıştır. Karakterin kişiliği, geçmişi, ilişkileri, ve oyun süresince yaşadığı önemli olayları içeren bu site, oyunu yöneten DM'in işini kolaylaştırmak ve karakterin gelişimini detaylı bir şekilde sunmak için tasarlanmıştır.
 
     <br><br>
@@ -347,7 +347,7 @@ font-size: 6pt;">
     
 
 
-    <div style="display: flex; flex-direction: row; justify-content: center;">
+    <div style="display: flex; flex-direction: row; justify-content: center; z-index: -1;">
 
         <div style="width: 600px; display: flex; flex-direction: column;">
             <h1 style="font-family: 'relation-two'; font-size: 48pt; color: rgb(255, 0, 187);">Riley Kılınç</h1>
@@ -396,7 +396,7 @@ font-size: 6pt;">
         </div>
     </div>
 
-    <div class="" style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center;">
         <img src="resources/images/lying.jpeg" alt="RileyImage" style="height: 750px; width: auto; transform: scaleX(-1) translateY(-150px) translateX(150px); mix-blend-mode: multiply;">
     </div>
 
@@ -511,8 +511,8 @@ font-size: 6pt;">
 
     if (scrollPosition >= 600) {
         // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
-        mainElement.style.top = '8%';
-        mainElement.style.transform = 'translate(-50%, -50%) scale(0.15)'; // Boyutu küçült
+        mainElement.style.top = '10%';
+        mainElement.style.transform = 'translate(-50%, -50%) scale(0.08)'; // Boyutu küçült
     } else {
         // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
         mainElement.style.top = '50%';
@@ -527,7 +527,7 @@ window.addEventListener('scroll', function() {
 
     if (scrollPosition >= 600) {
         // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
-        mainElement.style.top = '3.5%';
+        mainElement.style.top = '3.7%';
         mainElement.style.transform = 'translate(-50%, -50%)'; // Boyutu küçült
     } else {
         // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
@@ -544,11 +544,11 @@ window.addEventListener('scroll', function() {
 
     if (scrollPosition >= 600) {
         // 600px aşağı kaydırıldığında top %5'e kaydır ve scale küçült
-        mainElement.style.top = '-20%';
+        mainElement.style.top = '-40%';
         mainElement.style.transform = 'translate(-50%, -50%)'; // Boyutu küçült
     } else {
         // Geri kaydırıldığında top %50'ye geri al ve scale büyüt
-        mainElement.style.top = '-50%';
+        mainElement.style.top = '-100%';
         mainElement.style.transform = 'translate(-50%, -50%)'; // Eski boyuta dön
 
 
