@@ -43,3 +43,78 @@
     font-family: "barlow";
     padding-top: 10px;
 }
+
+.menu {
+    background-color: rgba(255, 255, 255, 0.749);
+    height: 100vh;
+    left: 2%;
+    padding: 50px;
+    margin: 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;    
+    margin-right: 15px;
+}
+
+.menu h1 {
+    font-family: "relation-two";
+    color: rgb(255, 0, 187);
+    font-size: 32pt;
+}
+
+.menu-buttons {
+    margin-top: 15%;
+}
+
+.menu-buttons a {
+    text-decoration: none;
+    font-family: "barlow";
+    color: rgb(255, 0, 187);
+    letter-spacing: 1px;
+    transition: 0.5s ease;
+}
+
+.menu-buttons a:hover {
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.main-header {
+    scale: 1;
+    transition: 1s ease;
+}
+
+.main-header:hover ~ .main  {
+
+    transform: scale(1.5);
+
+}
+
+.page-section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    padding: 50px;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section h1 {
+    font-family: "chippewa-falls";
+    font-size: 48pt;
+    color: rgb(255, 0, 187);
+    margin-bottom: 0;
+}
+
+.section p {
+    font-family: "barlow";
+}
