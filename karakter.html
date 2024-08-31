@@ -15,6 +15,37 @@
 
 
     <style>
+
+       
+        @media screen and (max-width: 1280px) {
+
+            #info-container {
+                flex-direction: column !important;
+            }
+
+            #hover-box {
+                margin: 0 !important;
+                border: none !important;
+            }
+
+            #riley-profile {
+                transform: scaleX(-1) translateX(-250px) translateY(250px) !important;
+                z-index: -1 !important;
+            }
+
+            #fiziksel-container {
+                width: 300px !important;
+            }
+            
+        }
+
+
+
+
+
+
+
+
         body {
             background-image:linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5)),  url(resources/images/bg-main.jpeg);
             background-repeat: no-repeat;
@@ -27,6 +58,11 @@
         .main {
             transition: 0.5s ease;
         }
+
+
+
+
+
 
         
     </style>
@@ -112,7 +148,7 @@
                 <br>
                 
 
-                <div style="display: flex; flex-direction: column; width: 500px;">
+                <div id="fiziksel-container" style="display: flex; flex-direction: column; width: 500px;">
                     <h2>
                         Fiziksel Özellikler
                     </h2>
@@ -130,7 +166,7 @@
     
                 </div>
 
-                <img src="resources/images/riley.png" style="pointer-events: none;width: 500px; position: absolute; transform: scaleX(-1) translateX(-550px) translateY(100px);">
+                <img id="riley-profile" src="resources/images/riley.png" style="pointer-events: none;width: 500px; position: absolute; transform: scaleX(-1) translateX(-550px) translateY(100px);">
 
                 <br>
                 <br>
@@ -147,7 +183,7 @@
                 <br>
 
 
-                <div style="display: flex; flex-direction: row; padding-bottom: 50px;">
+                <div  id="info-container"  style="display: flex; flex-direction: row; padding-bottom: 50px;">
                     <div id="hover-box" style="display: flex; flex-direction: column; padding-right: 50px; border-right: 1px solid rgb(255, 0, 187); padding-bottom: 50px; width: 500px;">
 
                         <h2>
@@ -169,7 +205,7 @@
                     
 
 
-                    <div id="hover-box" style="display: flex; flex-direction: column; margin-left: 100px; padding-bottom: 50px; width: 500px;">
+                    <div  id="hover-box" style="display: flex; flex-direction: column; margin-left: 100px; padding-bottom: 50px; width: 500px;">
 
                         <h2>
                             Fobiler
@@ -186,7 +222,7 @@
                     </div>
                 </div>
 
-                <div style="display: flex; flex-direction: row; padding-bottom: 50px;">
+                <div  id="info-container"  style="display: flex; flex-direction: row; padding-bottom: 50px;">
                     <div id="hover-box" style="display: flex; flex-direction: column; padding-right: 50px; border-right: 1px solid rgb(255, 0, 187); padding-bottom: 50px; width: 500px;">
 
                         <h2>
@@ -225,9 +261,7 @@
 
 
 
-                <br>
-                <br>
-                <br>
+                
 
 
 
