@@ -1,7 +1,7 @@
 
 
 .main h1 {
-    font-family: "relation-two";
+    font-family: "obviously-wide";
 }
 
 
@@ -65,7 +65,7 @@
 
 
 .menu h1 {
-    font-family: "relation-two";
+    font-family: "obviously-wide";
     color: rgb(255, 0, 187);
     font-size: 32pt;
 }
@@ -115,9 +115,9 @@
 }
 
 .section h1 {
-    font-family: "chippewa-falls";
+    font-family: "obviously-extended";
     font-size: 48pt;
-    color: rgb(255, 0, 187);
+    color: rgb(255, 255, 255);
     margin-bottom: 0;
 }
 
@@ -170,33 +170,38 @@
     align-items: center;
     font-family: "barlow";
     backdrop-filter: blur(100px) !important;
-    background-color: rgba(255, 255, 255, 0.243);
+    background-color: rgba(48, 48, 48, 0.243);
     border-radius: 15px;
     padding: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
+    background-image: url(resources/images/hikayecard.png); 
+    background-size: cover;
 
 }
 
 .hikaye-container h1 {
-    font-family: "proxima-nova" !important;
+    font-family: "obviously-wide" !important;
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
     pointer-events: none;
     font-size: 32pt;
+    margin-bottom: 25px;
 }
 
 .hikaye-container p {
     text-align: justify;
     hyphens: auto;
     width: 500px;
+    padding: 25px;
+    
 }
 
 
 .cizgi {
     width: 1px;
-    background-color: rgb(255, 0, 187);
+    background-color: blueviolet;
     height: 300px;
 }
 

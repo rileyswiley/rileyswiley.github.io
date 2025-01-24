@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.typekit.net/mel7uxx.css">
     <link rel="stylesheet" href="https://use.typekit.net/jze1rws.css">
     <link rel="stylesheet" href="https://use.typekit.net/kbd4gdk.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -47,17 +48,114 @@
 
 
         body {
-            background-image:linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5)),  url(resources/images/bg-main.jpeg);
+            background-image:linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.548));
+            background-color: black;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
 
         .main {
             transition: 0.5s ease;
         }
+
+        .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Videoyu ekranı dolduracak şekilde ayarlar */
+      z-index: -1; /* İçerik video üzerinde görünecek */
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      margin-top: 20%;
+      font-family: Arial, sans-serif;
+    }
+
+    .topmenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.808);
+        background-image: url(resources/images/image.png);
+        background-size: cover;
+        mix-blend-mode: screen;
+        padding: 0px;
+        padding-top: 20px;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(30px);
+        z-index: 50;
+        transform: translateY(-10px);
+    }
+
+    .topmenu a {
+        text-decoration: none;
+        color: white;
+        font-family: "obviously-extended";
+        font-weight: 700;
+        letter-spacing: 1pt;
+        font-size: 24pt;
+    }
+
+    .topmenu-inner {
+        padding: 15px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .topmenu-inner a {
+        font-family: "barlow";
+        font-size: 10pt;
+        font-weight: lighter;
+        transition: 0.3s ease;
+    }
+
+    .topmenu-inner a:hover {
+        letter-spacing: 2pt;
+        font-weight: bolder;
+        font-size: 12pt;
+
+    }
+
+    #topheaderlink {
+        color: white;
+        transition: 0.3s;
+    }
+
+    #topheaderlink:hover {
+        color: blueviolet;
+        font-weight: 700;
+    }
+
+
+    .page-content {
+        margin-top: 10%;
+        padding-left: 50px;
+        padding-right: 50px;
+        background-color: rgba(0, 0, 0, 0.144);
+        border-radius: 25px;
+        color: white;
+        font-family: "barlow";
+    }
+
+    .page-content-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+    
 
 
 
@@ -82,266 +180,39 @@
 
 <body>
     
+    <video class="background-video" autoplay muted loop playsinline style="opacity: 10%; filter: blur(50px); position: fixed;">
+        <source src="resources/video/Riley_Tempo.mp4" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor.
+    </video>
+
+
+    <div class="topmenu" style="position: fixed !important">
 
 
 
+        <a id="topheaderlink" href="index.html">RILEY</a>
 
-    <div class="mainbody" style="display: flex; flex-direction: row; justify-content: center;">
-
-
-        
+        <div class="f-row" style="display: flex; flex-direction: row;">
 
 
-        <div class="menu" >
-
-
-
-            <div class="main" style="height: 100px; width: 100px; border: 2px solid rgb(255, 0, 187); border-radius: 50%; margin-top: 15%;">
-                <a class="main-header" href="index.html" style="text-decoration: none;">
-                    <h1 class="main-header" style="transform: rotate(-20deg) translateY(-7px);">
-                        Riley
-                    </h1>
-                </a>
-            </div>
-        
-            <div class="menu-buttons">
-        
-        
-                <p><a href="karakter.html" style="font-weight: 900;">KARAKTER</a></p>
-                <p><a href="hikaye.html">HİKAYE</a></p>
-                <p><a href="iliskiler.html">İLİŞKİLER</a></p>
-                <p><a href="gardrop.html">GARDROP</a></p>
-        
-        
+            <div class="topmenu-inner">
+                <a href="karakter.html" style="font-weight: 800; color: blueviolet; letter-spacing: 2px; font-size: 12pt;">KARAKTER</a>
             </div>
 
-            
-                
+            <div class="topmenu-inner">
+                <a href="hikaye.html">HİKAYE</a>
+            </div>
+
+            <div class="topmenu-inner">
+                <a href="iliskiler.html">İLİŞKİLER</a>
+            </div>
+
+            <div class="topmenu-inner">
+                <a href="gardirop.html">GARDIROP</a>
+            </div>
+
+
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="page-section">
-
-            <div class="section">
-    
-
-                <h1 style="pointer-events: none;">
-                    Karakter
-                </h1>
-    
-                
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                
-
-                <div id="fiziksel-container" style="display: flex; flex-direction: column; width: 500px;">
-                    <h2>
-                        Fiziksel Özellikler
-                    </h2>
-    
-    
-                    <p><strong>Boy:</strong> <span>164 cm.</span></p>
-                    <p><strong>Kilo:</strong> <span>70 kg.</span></p>
-                    <p><strong>Yaş:</strong> <span>21</span></p>
-                    <p><strong>Gözler:</strong> <span>Mavi (Çoğunlukla farklı renklerde lens kullanır)</span></p>
-                    <p><strong>Saç:</strong> <span>Açık Kahverengi (Sarıya yakın) - Beyaza boyalı</span></p>
-                    <p><strong>Ten Rengi:</strong> <span>Soluk Beyaz</span></p>
-                    <p><strong>Ses:</strong> <span>İnce Feminen - Tatlı sayılabilecek bir ton</span></p>
-                    <p><strong>Dini İnanç:</strong> <span>Deist</span></p>
-                    <p><strong>Karakteristik Özellikler:</strong> <span>Meraklı, Enerjik, Korkak, Şehvetli, Yaratıcı, Duygusal, Hayalperest, Asabi</span></p>
-    
-                </div>
-
-                <img id="riley-profile" src="resources/images/riley-full3.png" style="pointer-events: none;width: 500px; position: absolute; scale: 1.2; transform: scaleX(-1) translateX(-350px) translateY(120px);">
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
-                <div  id="info-container"  style="display: flex; flex-direction: row; padding-bottom: 50px;">
-                    <div id="hover-box" style="display: flex; flex-direction: column; padding-right: 50px; border-right: 1px solid rgb(255, 0, 187); padding-bottom: 50px; width: 500px;">
-
-                        <h2>
-                            Hobiler
-                        </h2>
-        
-                        <p>Wattpad Yazarlığı (Bad Boy x Masum Kız Aşk Hikayeleri - 47 tane yazdı)</p>
-                        <p>Twilight bütün serisini tekrar tekrar izlemek (Şu ana kadar 478 kere izledi)</p>
-                        <p>Souls-like oyun oynamak</p>
-                        <p>Lens kolleksiyonu yapmak</p>
-                        <p>Çizim Yapmak</p>
-                        <p>Kıyafet kombini yapmak ve arkadaşlarıyla paylaşmak</p>
-                        <p>Dans etmek (Kendi başına)</p>
-                        <p>Müzik Dinlemek (Genellikle Pop, özellikle Aleyna Tilki)</p>
-                                                
-                    </div>
-
-
-                    
-
-
-                    <div  id="hover-box" style="display: flex; flex-direction: column; margin-left: 100px; padding-bottom: 50px; width: 500px;">
-
-                        <h2>
-                            Fobiler
-                        </h2>
-                    
-                        <p>Kapalı bir alanda yalnız kalmak</p>
-                        <p>Sevdiklerine zarar vermek (Herhangi bir şekilde)</p>
-                        <p>Cinsel temas (Objeler Hariç)</p>
-                        <p>Eklem bacaklı ufak canlılar</p>
-                        <p>Nefessiz kalmak</p>
-                        <p>Topluluğun önünde çıplak kalmak</p>
-                        <p>Baştan aşağı bir anda ıslanmak</p>
-
-                    </div>
-                </div>
-
-                <div  id="info-container"  style="display: flex; flex-direction: row; padding-bottom: 50px;">
-                    <div id="hover-box" style="display: flex; flex-direction: column; padding-right: 50px; border-right: 1px solid rgb(255, 0, 187); padding-bottom: 50px; width: 500px;">
-
-                        <h2>
-                            Sevdikleri
-                        </h2>
-        
-                        <p>Kediler</p>
-                        <p>Bilgisayar Oyunları</p>
-                        <p>Twilight Başrol Vampir Adam</p>
-                        <p>Dürüst İnsanlar</p>
-                        <p>Cosplayerlar</p>
-                        <p>Dürüst İnsanlar</p>
-
-                                                
-                    </div>
-
-
-                    
-
-
-                    <div id="hover-box" style="display: flex; flex-direction: column; margin-left: 100px; padding-bottom: 50px; width: 500px;">
-
-                        <h2>
-                            Sevmedikleri
-                        </h2>
-                    
-                        <p>Yalan</p>
-                        <p>Eklem Bacaklılar</p>
-                        <p>Rap Müzik</p>
-                        <p>Sarkıntı tipler</p>
-                        <p>Araba bağırtan kekolar</p>
-                        
-
-                    </div>
-                </div>
-
-
-
-                
-
-
-
-
-                <h2>
-                    Sorumluluklar
-                </h2>
-            
-                <p>Üniversiteye gitmek (Pazartesi - Salı - Çarşamba - Perşembe Ders Günleri)</p>
-                <p>Psikoterapi (Pazar ve Perşembe Günleri Akşam 19.00'da)</p>
-                <p>Vurma adamlık (Ne zaman iş gelirse)</p>
-
-
-
-
-
-
-                <br>
-                <br>
-                <br>
-
-
-
-                <h2>
-                    Beceriler
-                </h2>
-            
-                <p><strong>Keskin Nişancılık:</strong> <span>Küçük yaştan beri babasının yönlendirmesiyle keskin nişancı tüfeği kullanımı konusunda ustalaşmıştır. Şu an <a id="barrett" href="https://en.wikipedia.org/wiki/Barrett_M82" style="text-decoration: none; color: rgb(255, 0, 187); font-weight: bold;">Barrett M82 Keskin Nişancı Tüfeği</a> Kullanmaktadır.</span></p>
-                <p><strong>Çift Tabanca Kullanımı:</strong> <span>Keskin nişancı becerisi ile ilgili aldığı eğitimlerde tabanca kullanımı konusunda da beceri kazanmıştır. Şu an <a id="barrett" href="https://en.wikipedia.org/wiki/Beretta_92" style="text-decoration: none; color: rgb(255, 0, 187); font-weight: bold;">Çift Baretta 92</a> kullanmaktadır. </span></p>
-                <p><strong>Akrobasi:</strong> <span>Esnek hareketler yapabilir. Yoga, jimnastik vb. etkinliklerden kaynaklı esnek ve çevik hareketler yapabilir.</span></p>
-                <p><strong>Çizim:</strong> <span>Güzel sanatlara olan yatkınlığı ve ilgisi sebebiyle çizim becerisi oldukça gelişmiştir.</span></p>
-
-
-
-
-
-
-
-
-
-
-    
-    
-            </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        </div>
-    
-
 
 
 
@@ -349,49 +220,253 @@
 
 
 
+    <div class="page-content">
 
 
 
 
+        <h1 style="font-family: 'obviously-wide'; color: blueviolet;">FİZİKSEL ÖZELLİKLER</h1>
+
+        <div class="page-content-container" style="flex-direction: row;">
+
+
+                    <div>
+                        <p><strong>Boy:</strong> <span>164 cm.</span></p>
+                        <p><strong>Kilo:</strong> <span>70 kg.</span></p>
+                        <p><strong>Yaş:</strong> <span>21</span></p>
+                        <p><strong>Gözler:</strong> <span>Mavi (Çoğunlukla farklı renklerde lens kullanır)</span></p>
+                        <p><strong>Saç:</strong> <span>Açık Kahverengi (Sarıya yakın) - Beyaza boyalı</span></p>
+                        <p><strong>Ten Rengi:</strong> <span>Soluk Beyaz</span></p>
+                        <p><strong>Ses:</strong> <span>İnce Feminen - Tatlı sayılabilecek bir ton</span></p>
+                        <p><strong>Dini İnanç:</strong> <span>Deist</span></p>
+                        <p><strong>Karakteristik Özellikler:</strong> <span>Meraklı, Enerjik, Korkak, Şehvetli, Yaratıcı, Duygusal, Hayalperest, Asabi</span></p>
+                    </div>
+
+                    <img id="riley-profile" src="resources/images/riley-vesika.png" style="pointer-events: none;width: 290px; position: relative; scale: 1; transform: scaleX(1) translateX(100px) translateY(-60px);">
+
+
+        </div>
+
+
+
+        
+
+        <div style="display: flex; flex-direction: row; gap: 100px;">
+
+            <div style="display: flex; flex-direction: column; width: 500px;">
+
+                <h1 style="font-family: 'obviously-wide'; color: blueviolet;">HOBİLER</h1>
+    
+                <div class="page-content-container" style="flex-direction: column;">
+
+
+                            <h2 style="font-family: 'obviously-wide';">YENİ</h2>
+    
+    
+                            <div>
+                                <p>Manga okumak</p>
+                                <p>Fotoğraf çekmek</p>
+                                <p>Çizim yapmak</p>
+                                <p>Yürüyüşe çıkmak</p>
+                                <p>Müzik dinlemek</p>
+                                <p>Felsefi düşünmek</p>
+                                <p>Kitap okumak</p>
+                            </div>
+
+
+
+                            <h2 style="font-family: 'obviously-wide';">ESKİ</h2>
+    
+    
+                            <div>
+                                <p>Wattpad Yazarlığı (Bad Boy x Masum Kız Aşk Hikayeleri - 47 tane yazdı)</p>
+                                <p>Twilight bütün serisini tekrar tekrar izlemek (Şu ana kadar 478 kere izledi)</p>
+                                <p>Souls-like oyun oynamak</p>
+                                <p>Lens kolleksiyonu yapmak</p>
+                                <p>Çizim Yapmak</p>
+                                <p>Kıyafet kombini yapmak ve arkadaşlarıyla paylaşmak</p>
+                                <p>Dans etmek (Kendi başına)</p>
+                                <p>Müzik Dinlemek (Genellikle Pop, özellikle Aleyna Tilki)</p>
+                            </div>
+    
+    
+    
+                </div>
+    
+            </div>
+    
+            <div style="display: flex; flex-direction: column; width: 500px;">
+    
+                <h1 style="font-family: 'obviously-wide'; color: blueviolet;">FOBİLER</h1>
+    
+                <div class="page-content-container" style="flex-direction: column;">
+
+                            <h2 style="font-family: 'obviously-wide';">YENİ</h2>
+    
+    
+                            <div>
+                                <p>Boğulmak</p>
+                                <p>Baştan aşağı ıslanmak</p>
+                                <p>Eklem bacaklı ufak canlılar</p>
+                                <p>Birilerinin önünde çıplak kalmak</p>
+                                <p>Sevdiklerine zarar vermek</p>
+                                <p>İftiraya uğramak</p>
+                                <p>Haksız yere suçlanmak</p>
+                                <p>Kaybolmak</p>
+                                <p>Cinsel temas (Nesneler hariç)</p>
+                            </div>
+    
+
+
+                            <h2 style="font-family: 'obviously-wide';">ESKİ</h2>
+    
+                            <div>
+                                <p>Kapalı bir alanda yalnız kalmak</p>
+                                <p>Sevdiklerine zarar vermek (Herhangi bir şekilde)</p>
+                                <p>Cinsel temas (Objeler Hariç)</p>
+                                <p>Eklem bacaklı ufak canlılar</p>
+                                <p>Nefessiz kalmak</p>
+                                <p>Topluluğun önünde çıplak kalmak</p>
+                                <p>Baştan aşağı bir anda ıslanmak</p>
+                            </div>
+    
+    
+    
+                </div>
+    
+            </div>
+
+        </div>
+
+        <div style="display: flex; flex-direction: row; gap: 100px;">
+
+            <div style="display: flex; flex-direction: column; width: 500px;">
+
+                <h1 style="font-family: 'obviously-wide'; color: blueviolet;">SEVDİKLERİ</h1>
+    
+                <div class="page-content-container" style="flex-direction: column;">
+    
+
+                            <h2 style="font-family: 'obviously-wide';">YENİ</h2>
+    
+                            <div>
+                                <p>Kediler</p>
+                                <p>Kitaplar</p>
+                                <p>Fantastik Karakterler</p>
+                                <p>Dürüst İnsanlar</p>
+                                <p>Vefakâr İnsanlar</p>
+                                <p>Gün Batımı</p>
+                                <p>Sessizlik</p>
+                                <p>Cosplayerlar</p>
+
+                            </div>
+
+
+
+                            <h2 style="font-family: 'obviously-wide';">ESKİ</h2>
+
+    
+                            <div>
+                                <p>Kediler</p>
+                                <p>Bilgisayar Oyunları</p>
+                                <p>Twilight Başrol Vampir Adam</p>
+                                <p>Dürüst İnsanlar</p>
+                                <p>Cosplayerlar</p>
+                                <p>Dürüst İnsanlar</p>
+                            </div>
+    
+    
+    
+                </div>
+    
+            </div>
+    
+            <div style="display: flex; flex-direction: column; width: 500px;">
+    
+                <h1 style="font-family: 'obviously-wide'; color: blueviolet;">SEVMEDİKLERİ</h1>
+    
+                <div class="page-content-container" style="flex-direction: column;">
+    
+
+                            <h2 style="font-family: 'obviously-wide';">YENİ</h2>
+    
+                            <div>
+                                <p>Yalan</p>
+                                <p>Eklem Bacaklılar</p>
+                                <p>Yüksek Gürültü</p>
+                                <p>Aptal Hareketler</p>
+                                <p>Mantıksızlık</p>
+                                <p>Bir şeye zorlanmak</p>
+                                <p>Emrivaki</p>
+                                <p>Sigara</p>
+
+                            </div>
+
+
+
+                            <h2 style="font-family: 'obviously-wide';">ESKİ</h2>
+    
+                            <div>
+                                <p>Yalan</p>
+                                <p>Eklem Bacaklılar</p>
+                                <p>Rap Müzik</p>
+                                <p>Sarkıntı tipler</p>
+                                <p>Araba bağırtan kekolar</p>
+                            </div>
+    
+    
+    
+                </div>
+    
+            </div>
+
+        </div>
+
+        <div style="display: flex; flex-direction: column; width: 500px;">
+    
+            <h1 style="font-family: 'obviously-wide'; color: blueviolet;">SORUMLULUKLAR</h1>
+
+            <div class="page-content-container" style="flex-direction: row;">
+
+
+                        <div>
+                            <p>Üniversiteye gitmek (Pazartesi - Salı - Çarşamba - Perşembe Ders Günleri)</p>
+                            <p>Psikoterapi (Pazar ve Perşembe Günleri Akşam 19.00'da)</p>
+                            <p>Vurma adamlık (Ne zaman iş gelirse)</p>
+                        </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+    
+            <h1 style="font-family: 'obviously-wide'; color: blueviolet;">BECERİLER</h1>
+
+            <div class="page-content-container" style="flex-direction: row;">
+
+
+                        <div>
+                            <p><strong>Keskin Nişancılık:</strong> <span>Küçük yaştan beri babasının yönlendirmesiyle keskin nişancı tüfeği kullanımı konusunda ustalaşmıştır. Şu an <a id="barrett" href="https://en.wikipedia.org/wiki/Barrett_M82" style="text-decoration: none; color: rgb(255, 0, 187); font-weight: bold;">Barrett M82 Keskin Nişancı Tüfeği</a> Kullanmaktadır.</span></p>
+                            <p><strong>Çift Tabanca Kullanımı:</strong> <span>Keskin nişancı becerisi ile ilgili aldığı eğitimlerde tabanca kullanımı konusunda da beceri kazanmıştır. Şu an <a id="barrett" href="https://en.wikipedia.org/wiki/Beretta_92" style="text-decoration: none; color: rgb(255, 0, 187); font-weight: bold;">Çift Baretta 92</a> kullanmaktadır. </span></p>
+                            <p><strong>Akrobasi:</strong> <span>Esnek hareketler yapabilir. Yoga, jimnastik vb. etkinliklerden kaynaklı esnek ve çevik hareketler yapabilir.</span></p>
+                            <p><strong>Çizim:</strong> <span>Güzel sanatlara olan yatkınlığı ve ilgisi sebebiyle çizim becerisi oldukça gelişmiştir.</span></p>
+                        </div>
+
+
+
+            </div>
+
+        </div>
+
+        
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        const mainHeader = document.querySelector('.main-header');
-        const main = document.querySelector('.main');
-
-        mainHeader.addEventListener('mouseenter', () => {
-            main.style.transform = 'scale(1.5)';
-            main.style.border = '1px solid rgb(255, 0, 187)';
-        });
-
-        mainHeader.addEventListener('mouseleave', () => {
-            main.style.transform = 'scale(1)';
-            main.style.border = '5px solid rgb(255, 0, 187)';
-        });
-    </script>
-
-
-
-
-
-
+    </div>
 
 
 

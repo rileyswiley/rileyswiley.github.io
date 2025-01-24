@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.typekit.net/mel7uxx.css">
     <link rel="stylesheet" href="https://use.typekit.net/jze1rws.css">
     <link rel="stylesheet" href="https://use.typekit.net/kbd4gdk.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -29,7 +30,7 @@
             }
 
             #riley-profile {
-                transform: scaleX(-1) translateX(-250px) translateY(250px) !important;
+                transform: scaleX(-1) translateX(-130px) translateY(150px) !important;
                 z-index: -1 !important;
             }
 
@@ -47,17 +48,117 @@
 
 
         body {
-            background-image:linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5)),  url(resources/images/bg-main.jpeg);
+            background-image:linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.548));
+            background-color: black;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
 
         .main {
             transition: 0.5s ease;
         }
+
+        .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Videoyu ekranı dolduracak şekilde ayarlar */
+      z-index: -1; /* İçerik video üzerinde görünecek */
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      margin-top: 20%;
+      font-family: Arial, sans-serif;
+    }
+
+    .topmenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.808);
+        background-image: url(resources/images/image.png);
+        background-size: cover;
+        mix-blend-mode: screen;
+        padding: 0px;
+        padding-top: 20px;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(30px);
+        z-index: 50;
+        transform: translateY(-10px);
+    }
+
+    .topmenu a {
+        text-decoration: none;
+        color: white;
+        font-family: "obviously-extended";
+        font-weight: 700;
+        letter-spacing: 1pt;
+        font-size: 24pt;
+    }
+
+    .topmenu-inner {
+        padding: 15px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .topmenu-inner a {
+        font-family: "barlow";
+        font-size: 10pt;
+        font-weight: lighter;
+        transition: 0.3s ease;
+    }
+
+    .topmenu-inner a:hover {
+        letter-spacing: 2pt;
+        font-weight: bolder;
+        font-size: 12pt;
+    }
+
+    #topheaderlink {
+        color: white;
+        transition: 0.3s;
+    }
+
+    #topheaderlink:hover {
+        color: blueviolet;
+        font-weight: 700;
+    }
+
+
+    .page-content {
+        margin-top: 10%;
+        padding-left: 50px;
+        padding-right: 50px;
+        background-color: rgba(0, 0, 0, 0.144);
+        border-radius: 25px;
+        color: white;
+        font-family: "barlow";
+    }
+
+    .page-content-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+
+    .hikaye-container h1 {
+        font-family: "obviously-wide";
+    }
+    
 
 
 
@@ -82,281 +183,39 @@
 
 <body>
     
+    <video class="background-video" autoplay muted loop playsinline style="opacity: 10%; filter: blur(50px); position: fixed;">
+        <source src="resources/video/Riley_Tempo.mp4" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor.
+    </video>
+
+
+    <div class="topmenu" style="position: fixed !important">
 
 
 
+        <a id="topheaderlink" href="index.html">RILEY</a>
 
-    <div class="mainbody" style="display: flex; flex-direction: row; justify-content: center;">
-
-
-        
+        <div class="f-row" style="display: flex; flex-direction: row;">
 
 
-        <div class="menu" >
-
-
-
-            <div class="main" style="height: 100px; width: 100px; border: 2px solid rgb(255, 0, 187); border-radius: 50%; margin-top: 15%;">
-                <a class="main-header" href="index.html" style="text-decoration: none;">
-                    <h1 class="main-header" style="transform: rotate(-20deg) translateY(-7px);">
-                        Riley
-                    </h1>
-                </a>
-            </div>
-        
-            <div class="menu-buttons">
-        
-        
-                <p><a href="karakter.html" >KARAKTER</a></p>
-                <p><a href="hikaye.html" style="font-weight: 900;">HİKAYE</a></p>
-                <p><a href="iliskiler.html">İLİŞKİLER</a></p>
-                <p><a href="gardrop.html">GARDROP</a></p>
-        
-        
+            <div class="topmenu-inner">
+                <a href="karakter.html">KARAKTER</a>
             </div>
 
-            
-                
+            <div class="topmenu-inner">
+                <a href="hikaye.html" style="font-weight: 800; color: blueviolet; letter-spacing: 2px; font-size: 12pt;">HİKAYE</a>
+            </div>
+
+            <div class="topmenu-inner">
+                <a href="iliskiler.html">İLİŞKİLER</a>
+            </div>
+
+            <div class="topmenu-inner">
+                <a href="gardirop.html">GARDIROP</a>
+            </div>
+
+
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="page-section">
-
-            <div class="section" style="align-items: center;">
-
-
-
-                <h1 style="pointer-events: none;">
-                    Hikâye
-                </h1>
-
-                <span style="font-family: 'barlow';">
-                    Hikayeyi kronolojik olarak takip etmek için sayfanın en altından başlayın. En güncel anlatımlar en üstte yer alacak şekilde düzenlenmektedir.
-                </span>
-
-
-
-            </div>
-
-            <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-            <div class="section" style="display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-end;">
-    
-
-                
-    
-                
-                
-                
-                
-
-                <div class="hikaye-container">
-
-
-                    <h1>Çocukluk</h1>
-
-
-
-                    <p>
-                        Riley Kılınç’ın çocukluğu, babası Kıvanç ile birlikte Amerika’da geçmiş ve bu dönem, onun hayatındaki en renkli ve huzurlu yıllar olmuştur. Riley, 12 yaşına kadar özgür bir şekilde büyümüş, babasının desteğiyle kendini farklı alanlarda ifade etme imkanı bulmuştur. Dans, çizim ve akrobasi gibi yetenekleri, onu yaşıtlarından farklı kılmıştır. Babası Kıvanç, boşanmanın yarattığı boşluğu Riley’e karşı sevgi dolu bir destekle doldurmuş, onun yeteneklerini keşfetmesi için her fırsatı sunmuştur. Riley’nin hayalperest ve yaratıcı ruhu, bu dönemde kendini en çok gösterdiği zamandır. Özellikle dans ve çizim, onun dünyasındaki hayalleri gerçeğe dönüştüren araçlar olmuştur. Akrobatik yetenekleri ise ona hem fiziksel bir özgürlük hem de kendi bedenine olan güvenini kazandırmıştır. Ancak, bu mutlu yılların ardında, Riley’nin iç dünyasında henüz fark etmediği bir kırılganlık ve derin bir korku yatmaktadır. Bu huzurlu çocukluk dönemi, onun ilerleyen yıllardaki karmaşık duygusal yapısının temelini oluşturacaktır.
-                    </p>
-
-
-                </div>
-
-                <div class="cizgi"></div>
-
-                <div class="hikaye-container">
-
-
-                    <h1>Gençlik</h1>
-
-
-
-                    <p>
-                        Riley, 12 yaşından sonra sanatla olan bağını daha da güçlendirdi. Liseye başladığında, çizim tutkusu onu, görsel romanlar üretmeye yönlendirdi. Bu süreçte, Twilight serisi onun en büyük ilham kaynağı oldu ve bu etki, yarattığı Wattpad hikayelerine de yansıdı. Romantizmin büyüsüyle dolu hikayeler yazmak, Riley’nin yaratıcı ve duygusal yanını beslerken, aynı zamanda onun hayal gücünü daha da genişletti. Ancak, Riley’nin hayatında yalnızca sanat yoktu; babasının yönlendirmesiyle, aynı zamanda silah kullanma eğitimlerine de başladı. Başta bu eğitimleri, babasının istediği bir zorunluluk olarak görse de, zamanla silah kullanmanın ona tuhaf bir memnuniyet verdiğini fark etti. Çift tabanca ve keskin nişancı tüfeği kullanımı üzerine aldığı bu kurslar, Riley’nin içindeki çelişkiyi daha da derinleştirdi: Bir yandan romantik ve yaratıcı bir ruh, diğer yandan ölümcül bir beceri geliştiren biri. Bu iki zıt dünya arasında denge kurmaya çalışmak, Riley’nin karakterini hem güçlendirdi hem de daha karmaşık hale getirdi. Bu eğitimler, 18 yaşına kadar devam etti ve Riley, kendi içinde bu iki dünyayı bir arada tutmayı öğrendi; sanatla dolu renkli dünyası ile ölümcül bir becerinin soğuk gerçekliği arasında.                    </p>
-
-
-                </div>
-
-                <div class="cizgi"></div>
-
-                <div class="hikaye-container">
-
-
-                    <h1>Merhaba Gülbant</h1>
-                    <span style="text-align: center;">FORKLİFT I</span>
-
-
-
-                    <p>
-                        Riley, 18 yaşına bastığında, hayatı bir anda alt üst oldu. Sanat okuluna gitme hayalleri, babasından gelen beklenmedik haberle yerle bir oldu. Babasının Türkiye’ye gitmek zorunda olduğunu ve üniversite parasıyla bu seyahati finanse edeceğini söylemesi, Riley’i öfkeyle doldurdu. Kıvanç Kılınç’ın bu kararının arkasında yatan gerçek nedenin, Riley’i korumak için alınmış bir önlem olduğunu öğrendiğinde bile, içindeki hayal kırıklığı ve çaresizlik dinmedi.
-
-                        <br><br>
-
-                        Tüm hayallerini geride bırakarak, yanında toplayabildiği bütün anlamlı eşyaları ve babasının kendince anlamlandıramadığı geçiş işlemlerini sağladığı Barrett M82 keskin nişancı tüfeği ve çift Baretta 92 tabancasıyla Türkiye’ye, Gülbant adlı yabancı bir şehre gitmek zorunda kaldı. Oraya vardığında, babasının arkadaşının akrabası Yasin ve onun sıradışı arkadaşları Berke Bar, İsmail Çatlı, ve Adem Sürücü ile tanıştı. Yasin’in evinde kaldığı o ilk gece, Riley kendini tamamen yabancı ve tehlikeli bir dünyanın içine çekilmiş hissetti. Bu değişim, sadece fiziksel bir yer değişikliği değildi; aynı zamanda Riley’nin hayatındaki belirsizlikleri, korkuları ve karanlık taraflarını da gün yüzüne çıkaran bir dönüm noktasıydı.
-
-                        <br><br>
-
-                        Bu yeni dünyada, Riley’nin yaratıcı ruhu ve ölümcül becerileri arasında kurduğu ince denge, hiç olmadığı kadar zorlanacaktı. İçindeki sanatçı, bu tehlikeli ortamda hayatta kalmak için savaşçı yanıyla çarpışmak zorundaydı. Gülbant’a attığı ilk adımla birlikte, Riley’nin hikayesi, onu bambaşka bir kimliğe dönüştürecek yeni bir yola girmişti.
-                    </p>
-
-
-                </div>
-
-                <div class="cizgi"></div>
-
-
-                <div class="hikaye-container">
-
-
-                    <h1>GÜLBANT'I ANLAMAK</h1>
-                    <span style="text-align: center;">FORKLİFT I</span>
-
-
-                    <p>
-                        Riley, Gülbant’taki ilk günlerinde, Yasin ve ekibiyle zaman geçirirken, buraya gelişinin sadece oturmakla sınırlı kalmayacağını hızla öğrendi. Babasının ona gönderdiği silahların, sadece kendini savunmak için değil, aynı zamanda bu tehlikeli ortamda başka amaçlarla kullanılmak üzere olduğunu fark etti. Yasin ve arkadaşlarının sıradan insanlar olmadığını, aksine geçimlerini kiralık katil olarak sağlayan, karanlık işlerin insanları olduğunu anladı. Bu durum başta Riley’i korkutsa da, geri dönüş olmadığını bilerek ortama ayak uydurmaya başladı.
-
-                        <br><br>
-
-                        Bu yeni çevrede, Riley, kendisini hayatta kalmak için değişmeye zorlayan bir karanlıkla yüzleşti. İlk başta içindeki korku ve tedirginlik her anını şekillendirdi; ancak zamanla, babasının onu bu dünyaya hazırladığını fark etti. Hayatında ilk kez, sanatçı ruhu ile ölümcül becerilerinin birleştiği bir noktaya geldi. Yasin ve ekibinin yanında geçirdiği günler, Riley’nin hem fiziksel hem de duygusal olarak nasıl ayakta kalacağını öğrenmesiyle geçti. Bu tehlikeli ortamda, hayatta kalmanın bir kenara çekilmekle değil, mücadele etmekle mümkün olduğunu anlamaya başladı. Riley, sanat dolu hayallerini, tehlikeli gerçeklerle örülü bu yeni dünyada bir kenara koymak zorunda kaldı; artık, hayatta kalma mücadelesi onun yeni sanatıydı.                    </p>
-
-
-                </div>
-
-                <div class="cizgi"></div>
-
-
-                <div class="hikaye-container">
-
-
-                    <h1>TANKER INCIDENT</h1>
-                    <span style="text-align: center;">FORKLİFT II</span>
-
-
-
-                    <p>
-                        Riley, 21 yaşında, gözlerini bir hastanede başı sargılı olarak açar. Son hatırladığı şeyler, Gülbant’a gelişi, Yasin ve ekibiyle tanışması ve onlarla geçirdiği birkaç haftalık süreyi içerir. Ancak bu hatırladıkları, 18 yaşında Gülbant’a gelişinden sonra geçen üç yılın sadece başlangıcıdır. Ona söylenmese de, bir tanker patlaması sonucu ağır bir kafa travması geçirmiştir ve bu travma, o üç yıl boyunca yaşadığı her şeyi hafızasından silmiştir. Artık, geçmişinin büyük bir parçası boşlukla doludur ve geride sadece kısmi hatıralar kalmıştır.
-                        <br><br>
-                        Bu unutulmuş yılların ardından Riley, kim olduğunu ve ne yaşadığını yeniden öğrenme sürecine girmek zorundadır. Bu süreç, sadece geçmişini geri kazanmak değil, aynı zamanda bu belirsizlikle nasıl başa çıkacağını bulmakla ilgilidir. Geçmişinin karanlık ve tehlikeli yüzü, yeniden hatırlanmayı beklerken, Riley’nin hayatında yeni bir sayfa açılmak üzeredir.
-                        
-                    </p>
-
-                </div>
-
-                <div class="cizgi"></div>
-
-
-                <div class="hikaye-container">
-
-
-                    <h1>TOPARLANMA SÜRECİ</h1>
-                    <span style="text-align: center;">FORKLİFT II</span>
-
-
-
-                    <p>
-
-                        Riley’nin hayatı, geçirdiği ağır travmanın ardından bir kez daha alt üst olur. Gözlerini hastanede açtığında, son üç yılın silinmiş olduğunu fark eder. Bu durumdan haberdar olan ablası Sarah, Amerika’dan Gülbant’a gelerek Riley’ye destek olur. Riley, toparlanma sürecinde çeşitli psikiyatrik ilaçlar alır ve yoğun bir psikoterapi sürecine girer. Ablasıyla birlikte bir daireye yerleşir ve bir süre vurma işlerinden uzaklaşır. Bu dönemde, Gülbant Üniversitesi Güzel Sanatlar Fakültesi İllüstrasyon bölümüne kabul edilir ve üniversite okumaya başlar. Ancak zihinsel durumunun düzelmeye başlamasıyla, eski yaşamı tekrar geri döner ve yeni bir grupla birlikte vurma işlerine devam etmeye başlar. Cenk Kurt, Yağız Delikanlı, Sercan Server ve Kamil Tonga isimli yeni isimlerle tanışır ve onlarla birlikte çalışır. Ancak eski ekibine dair hatırlayabildiği tek şey, tanıştıkları gün ve birlikte gerçekleştirdikleri birkaç görevdir. Onların başına ne geldiğini bilememek ve bu boşluğu dolduramamak, Riley’ye derin bir acı verir. Bu hatıraları geri getirmek için her denemesi, travmanın ağır yükünü yeniden hissetmesine neden olur.
-                    
-                    </p>    
-                </div>
-
-                <div class="cizgi"></div>
-
-
-                <div class="hikaye-container">
-
-
-                    <h1>ARA OLAYLAR</h1>
-                    <span style="text-align: center;">FORKLİFT II</span>
-
-                        Bu kısım, Forklift II'nin oynanmaya başlaması ile gerçekleşen oturumlardaki olayların yerini tutar. 
-
-                    <p>
-
-
-                        
-                    </p>    
-                </div>
-
-                <div class="cizgi"></div>
-
-
-                <div class="hikaye-container">
-
-
-                    <h1>OYUN 30 AĞUSTOS 2024</h1>
-                    <span style="text-align: center;">FORKLİFT II</span>
-
-
-                    <p>
-
-
-                        
-                    </p>    
-                </div>
-
-                
-
-
-
-
-
-    
-    
-            </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        </div>
-    
-
 
 
 
@@ -364,49 +223,198 @@
 
 
 
+    <div class="page-content">
 
 
 
 
 
+        
+
+        <div class="section" style="align-items: center;">
+
+
+
+            <h1 style="pointer-events: none; letter-spacing: 7pt; font-weight: bold; color: blueviolet;">
+                HİKAYE
+            </h1>
+
+            <span style="font-family: 'barlow';">
+                Hikayeyi kronolojik olarak takip etmek için sayfanın en altından başlayın. En güncel anlatımlar en üstte yer alacak şekilde düzenlenmektedir.
+            </span>
+
+
+
+        </div>
+
+        <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        <div class="section" style="display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-end;">
+
+
+            
+
+            
+            
+            
+            
+
+            <div class="hikaye-container">
+
+
+                <h1>Çocukluk</h1>
+
+
+
+                <p>
+                    Riley Kılınç’ın çocukluğu, babası Kıvanç ile birlikte Amerika’da geçmiş ve bu dönem, onun hayatındaki en renkli ve huzurlu yıllar olmuştur. Riley, 12 yaşına kadar özgür bir şekilde büyümüş, babasının desteğiyle kendini farklı alanlarda ifade etme imkanı bulmuştur. Dans, çizim ve akrobasi gibi yetenekleri, onu yaşıtlarından farklı kılmıştır. Babası Kıvanç, boşanmanın yarattığı boşluğu Riley’e karşı sevgi dolu bir destekle doldurmuş, onun yeteneklerini keşfetmesi için her fırsatı sunmuştur. Riley’nin hayalperest ve yaratıcı ruhu, bu dönemde kendini en çok gösterdiği zamandır. Özellikle dans ve çizim, onun dünyasındaki hayalleri gerçeğe dönüştüren araçlar olmuştur. Akrobatik yetenekleri ise ona hem fiziksel bir özgürlük hem de kendi bedenine olan güvenini kazandırmıştır. Ancak, bu mutlu yılların ardında, Riley’nin iç dünyasında henüz fark etmediği bir kırılganlık ve derin bir korku yatmaktadır. Bu huzurlu çocukluk dönemi, onun ilerleyen yıllardaki karmaşık duygusal yapısının temelini oluşturacaktır.
+                </p>
+
+
+            </div>
+
+            <div class="cizgi"></div>
+
+            <div class="hikaye-container">
+
+
+                <h1>Gençlik</h1>
+
+
+
+                <p>
+                    Riley, 12 yaşından sonra sanatla olan bağını daha da güçlendirdi. Liseye başladığında, çizim tutkusu onu, görsel romanlar üretmeye yönlendirdi. Bu süreçte, Twilight serisi onun en büyük ilham kaynağı oldu ve bu etki, yarattığı Wattpad hikayelerine de yansıdı. Romantizmin büyüsüyle dolu hikayeler yazmak, Riley’nin yaratıcı ve duygusal yanını beslerken, aynı zamanda onun hayal gücünü daha da genişletti. Ancak, Riley’nin hayatında yalnızca sanat yoktu; babasının yönlendirmesiyle, aynı zamanda silah kullanma eğitimlerine de başladı. Başta bu eğitimleri, babasının istediği bir zorunluluk olarak görse de, zamanla silah kullanmanın ona tuhaf bir memnuniyet verdiğini fark etti. Çift tabanca ve keskin nişancı tüfeği kullanımı üzerine aldığı bu kurslar, Riley’nin içindeki çelişkiyi daha da derinleştirdi: Bir yandan romantik ve yaratıcı bir ruh, diğer yandan ölümcül bir beceri geliştiren biri. Bu iki zıt dünya arasında denge kurmaya çalışmak, Riley’nin karakterini hem güçlendirdi hem de daha karmaşık hale getirdi. Bu eğitimler, 18 yaşına kadar devam etti ve Riley, kendi içinde bu iki dünyayı bir arada tutmayı öğrendi; sanatla dolu renkli dünyası ile ölümcül bir becerinin soğuk gerçekliği arasında.                    </p>
+
+
+            </div>
+
+            <div class="cizgi"></div>
+
+            <div class="hikaye-container">
+
+
+                <h1>Merhaba Gülbant</h1>
+                <span style="text-align: center;">FORKLİFT I</span>
+
+
+
+                <p>
+                    Riley, 18 yaşına bastığında, hayatı bir anda alt üst oldu. Sanat okuluna gitme hayalleri, babasından gelen beklenmedik haberle yerle bir oldu. Babasının Türkiye’ye gitmek zorunda olduğunu ve üniversite parasıyla bu seyahati finanse edeceğini söylemesi, Riley’i öfkeyle doldurdu. Kıvanç Kılınç’ın bu kararının arkasında yatan gerçek nedenin, Riley’i korumak için alınmış bir önlem olduğunu öğrendiğinde bile, içindeki hayal kırıklığı ve çaresizlik dinmedi.
+
+                    <br><br>
+
+                    Tüm hayallerini geride bırakarak, yanında toplayabildiği bütün anlamlı eşyaları ve babasının kendince anlamlandıramadığı geçiş işlemlerini sağladığı Barrett M82 keskin nişancı tüfeği ve çift Baretta 92 tabancasıyla Türkiye’ye, Gülbant adlı yabancı bir şehre gitmek zorunda kaldı. Oraya vardığında, babasının arkadaşının akrabası Yasin ve onun sıradışı arkadaşları Berke Bar, İsmail Çatlı, ve Adem Sürücü ile tanıştı. Yasin’in evinde kaldığı o ilk gece, Riley kendini tamamen yabancı ve tehlikeli bir dünyanın içine çekilmiş hissetti. Bu değişim, sadece fiziksel bir yer değişikliği değildi; aynı zamanda Riley’nin hayatındaki belirsizlikleri, korkuları ve karanlık taraflarını da gün yüzüne çıkaran bir dönüm noktasıydı.
+
+                    <br><br>
+
+                    Bu yeni dünyada, Riley’nin yaratıcı ruhu ve ölümcül becerileri arasında kurduğu ince denge, hiç olmadığı kadar zorlanacaktı. İçindeki sanatçı, bu tehlikeli ortamda hayatta kalmak için savaşçı yanıyla çarpışmak zorundaydı. Gülbant’a attığı ilk adımla birlikte, Riley’nin hikayesi, onu bambaşka bir kimliğe dönüştürecek yeni bir yola girmişti.
+                </p>
+
+
+            </div>
+
+            <div class="cizgi"></div>
+
+
+            <div class="hikaye-container">
+
+
+                <h1>GÜLBANT'I ANLAMAK</h1>
+                <span style="text-align: center;">FORKLİFT I</span>
+
+
+                <p>
+                    Riley, Gülbant’taki ilk günlerinde, Yasin ve ekibiyle zaman geçirirken, buraya gelişinin sadece oturmakla sınırlı kalmayacağını hızla öğrendi. Babasının ona gönderdiği silahların, sadece kendini savunmak için değil, aynı zamanda bu tehlikeli ortamda başka amaçlarla kullanılmak üzere olduğunu fark etti. Yasin ve arkadaşlarının sıradan insanlar olmadığını, aksine geçimlerini kiralık katil olarak sağlayan, karanlık işlerin insanları olduğunu anladı. Bu durum başta Riley’i korkutsa da, geri dönüş olmadığını bilerek ortama ayak uydurmaya başladı.
+
+                    <br><br>
+
+                    Bu yeni çevrede, Riley, kendisini hayatta kalmak için değişmeye zorlayan bir karanlıkla yüzleşti. İlk başta içindeki korku ve tedirginlik her anını şekillendirdi; ancak zamanla, babasının onu bu dünyaya hazırladığını fark etti. Hayatında ilk kez, sanatçı ruhu ile ölümcül becerilerinin birleştiği bir noktaya geldi. Yasin ve ekibinin yanında geçirdiği günler, Riley’nin hem fiziksel hem de duygusal olarak nasıl ayakta kalacağını öğrenmesiyle geçti. Bu tehlikeli ortamda, hayatta kalmanın bir kenara çekilmekle değil, mücadele etmekle mümkün olduğunu anlamaya başladı. Riley, sanat dolu hayallerini, tehlikeli gerçeklerle örülü bu yeni dünyada bir kenara koymak zorunda kaldı; artık, hayatta kalma mücadelesi onun yeni sanatıydı.                    </p>
+
+
+            </div>
+
+            <div class="cizgi"></div>
+
+
+            <div class="hikaye-container">
+
+
+                <h1>TANKER INCIDENT</h1>
+                <span style="text-align: center;">FORKLİFT II</span>
+
+
+
+                <p>
+                    Riley, 21 yaşında, gözlerini bir hastanede başı sargılı olarak açar. Son hatırladığı şeyler, Gülbant’a gelişi, Yasin ve ekibiyle tanışması ve onlarla geçirdiği birkaç haftalık süreyi içerir. Ancak bu hatırladıkları, 18 yaşında Gülbant’a gelişinden sonra geçen üç yılın sadece başlangıcıdır. Ona söylenmese de, bir tanker patlaması sonucu ağır bir kafa travması geçirmiştir ve bu travma, o üç yıl boyunca yaşadığı her şeyi hafızasından silmiştir. Artık, geçmişinin büyük bir parçası boşlukla doludur ve geride sadece kısmi hatıralar kalmıştır.
+                    <br><br>
+                    Bu unutulmuş yılların ardından Riley, kim olduğunu ve ne yaşadığını yeniden öğrenme sürecine girmek zorundadır. Bu süreç, sadece geçmişini geri kazanmak değil, aynı zamanda bu belirsizlikle nasıl başa çıkacağını bulmakla ilgilidir. Geçmişinin karanlık ve tehlikeli yüzü, yeniden hatırlanmayı beklerken, Riley’nin hayatında yeni bir sayfa açılmak üzeredir.
+                    
+                </p>
+
+            </div>
+
+            <div class="cizgi"></div>
+
+
+            <div class="hikaye-container">
+
+
+                <h1>TOPARLANMA SÜRECİ</h1>
+                <span style="text-align: center;">FORKLİFT II</span>
+
+
+
+                <p>
+
+                    Riley’nin hayatı, geçirdiği ağır travmanın ardından bir kez daha alt üst olur. Gözlerini hastanede açtığında, son üç yılın silinmiş olduğunu fark eder. Bu durumdan haberdar olan ablası Sarah, Amerika’dan Gülbant’a gelerek Riley’ye destek olur. Riley, toparlanma sürecinde çeşitli psikiyatrik ilaçlar alır ve yoğun bir psikoterapi sürecine girer. Ablasıyla birlikte bir daireye yerleşir ve bir süre vurma işlerinden uzaklaşır. Bu dönemde, Gülbant Üniversitesi Güzel Sanatlar Fakültesi İllüstrasyon bölümüne kabul edilir ve üniversite okumaya başlar. Ancak zihinsel durumunun düzelmeye başlamasıyla, eski yaşamı tekrar geri döner ve yeni bir grupla birlikte vurma işlerine devam etmeye başlar. Cenk Kurt, Yağız Delikanlı, Sercan Server ve Kamil Tonga isimli yeni isimlerle tanışır ve onlarla birlikte çalışır. Ancak eski ekibine dair hatırlayabildiği tek şey, tanıştıkları gün ve birlikte gerçekleştirdikleri birkaç görevdir. Onların başına ne geldiğini bilememek ve bu boşluğu dolduramamak, Riley’ye derin bir acı verir. Bu hatıraları geri getirmek için her denemesi, travmanın ağır yükünü yeniden hissetmesine neden olur.
+                
+                </p>    
+            </div>
+
+            <div class="cizgi"></div>
+
+
+            <div class="hikaye-container">
+
+
+                <h1>ARA OLAYLAR</h1>
+                <span style="text-align: center;">FORKLİFT II</span>
+
+                    Bu kısım, Forklift II'nin oynanmaya başlaması ile gerçekleşen oturumlardaki olayların yerini tutar. 
+
+                <p>
+
+
+                    
+                </p>    
+            </div>
+
+            <div class="cizgi"></div>
+
+
+            <div class="hikaye-container">
+
+
+                <h1>OYUN 30 AĞUSTOS 2024</h1>
+                <span style="text-align: center;">FORKLİFT II</span>
+
+
+                <p>
+
+
+                    
+                </p>    
+            </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        const mainHeader = document.querySelector('.main-header');
-        const main = document.querySelector('.main');
-
-        mainHeader.addEventListener('mouseenter', () => {
-            main.style.transform = 'scale(1.5)';
-            main.style.border = '1px solid rgb(255, 0, 187)';
-        });
-
-        mainHeader.addEventListener('mouseleave', () => {
-            main.style.transform = 'scale(1)';
-            main.style.border = '5px solid rgb(255, 0, 187)';
-        });
-    </script>
-
-
-
-
-
-
+    </div>
 
 
 
